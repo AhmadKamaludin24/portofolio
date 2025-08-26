@@ -75,7 +75,17 @@ import instagram from "./socials/instagram.svg";
 import telegram from "./socials/telegram.svg";
 import twitter from "./socials/twitter.svg";
 
+
+import portofolio from "./projects/portofolio.PNG";
+import brobot from "./projects/brobot.PNG";
+import knr from "./projects/knr.PNG";
+import brobotChat from "./projects/brobot-chat.PNG";
+
 export {
+  portofolio,
+  brobot,
+  knr,
+  brobotChat,
   brainwave,
   check,
   check2,

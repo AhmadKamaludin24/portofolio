@@ -34,7 +34,53 @@ import {
   telegram,
   twitter,
   yourlogo,
+
+  portofolio,
+  brobot,
+  knr,
+  brobotChat,
 } from "../assets";
+
+
+export const projects = [
+  {
+    id: 0,
+    title: "Portfolio Website",
+    description:
+      "A personal portfolio website to showcase my projects and skills, built with React and Tailwind CSS.",
+    imageUrl: portofolio,
+    projectUrl: "https://yourportfolio.com",
+    codeUrl: ""
+  },
+  {
+    id: 1,
+    title: "Learning Platform with AI Conversation",
+    description:
+      "an innovative e-learning platform that leverages AI to provide personalized learning experiences and interactive conversations.",
+    imageUrl: brobot,
+    projectUrl: "https://yourecommerce.com",
+    codeUrl: ""
+  },
+  {
+    id: 2,
+    title: "Prototype Event Ticketing Website",
+    description:
+      "A modern event ticketing website prototype that allows users to browse and purchase tickets from events.",
+    imageUrl: knr,
+    projectUrl: "https://yourblog.com",
+    codeUrl: ""
+  },
+  {
+    id: 3,
+    title: "AI Chatbot ",
+    description:
+      "An AI-powered chatbot application that provides instant responses and personalized recommendations.",
+    imageUrl: brobotChat,
+    projectUrl: "https://yourtaskmanager.com",
+    codeUrl: ""
+  },
+]
+
 
 export const navigation = [
   {
