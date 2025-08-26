@@ -11,7 +11,7 @@ import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphe
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 
 // replace with your own imports, see the usage snippet for details
-import cardGLB from "./card.glb";
+
 import lanyard from "./lanyard.png";
 
 import * as THREE from 'three';
@@ -44,7 +44,7 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
   const band = useRef(), fixed = useRef(), j1 = useRef(), j2 = useRef(), j3 = useRef(), card = useRef();
   const vec = new THREE.Vector3(), ang = new THREE.Vector3(), rot = new THREE.Vector3(), dir = new THREE.Vector3();
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 };
-  const { nodes, materials } = useGLTF(cardGLB);
+  const { nodes, materials } = useGLTF("/card.glb");
   const texture = useTexture(lanyard);
   const [curve] = useState(() => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]));
   const [dragged, drag] = useState(false);

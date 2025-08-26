@@ -9,11 +9,11 @@ const AboutSection = () => {
     <Section
       crosses
       id="about"
-      className="pt-[12rem] max-sm:pt-[8rem] -mt-[5.25rem]"
+      className="pt-[12rem] px-7 max-sm:pt-[8rem] -mt-[5.25rem]"
       crossesOffset="lg:translate-y-[5.25rem]"
       customPaddings>
-      <div className="max-w-[100rem] px-7 max-sm:pb-32 mx-auto relative py-24 flex max-md:flex-col items-center justify-between  lg:gap-10">
-        <div className="flex flex-col gap-5 max-w-3xl">
+      <div className="lg:max-w-[100rem] w-full max-sm:pb-32 mx-auto relative py-24 flex max-md:flex-col items-center justify-between  lg:gap-10">
+        <div className="flex flex-col gap-5 lg:max-w-3xl">
           <h1 className="h1  ">
             Pixels Are My Playground, Code Is My Language.
           </h1>
