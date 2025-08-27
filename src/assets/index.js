@@ -80,8 +80,10 @@ import portofolio from "./projects/portofolio.PNG";
 import brobot from "./projects/brobot.PNG";
 import knr from "./projects/knr.PNG";
 import brobotChat from "./projects/brobot-chat.PNG";
+import crowdFunding from "./projects/crowdfunding.PNG";
 
 export {
+  crowdFunding,
   portofolio,
   brobot,
   knr,

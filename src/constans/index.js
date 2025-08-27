@@ -39,17 +39,18 @@ import {
   brobot,
   knr,
   brobotChat,
+  crowdFunding,
 } from "../assets";
 
 
 export const projects = [
   {
     id: 0,
-    title: "Portfolio Website",
+    title: "Decewntralized Crowdfunding Platform",
     description:
-      "A personal portfolio website to showcase my projects and skills, built with React and Tailwind CSS.",
-    imageUrl: portofolio,
-    projectUrl: "https://yourportfolio.com",
+      "A decentralized crowdfunding platform that allows users to create and fund projects using blockchain technology.",
+    imageUrl: crowdFunding,
+    projectUrl: "https://crowd-funding-wine.vercel.app/",
     codeUrl: ""
   },
   {
@@ -98,17 +99,17 @@ export const navigation = [
     title: "Project",
     url: "#project",
   },
-  {
-    id: "3",
-    title: "FAQ",
-    url: "#faq",
-  },
-  {
-    id: "4",
-    title: "Contact",
-    url: "#contact",
-    onlyMobile: true,
-  },
+  // {
+  //   id: "3",
+  //   title: "FAQ",
+  //   url: "#faq",
+  // },
+  // {
+  //   id: "4",
+  //   title: "Contact",
+  //   url: "#contact",
+  //   onlyMobile: true,
+  // },
 ];
 
 export const heroIcons = [homeSmile, file02, searchMd, plusSquare];

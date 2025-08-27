@@ -6,20 +6,47 @@ import { heroBackground } from "../assets";
 import ReactMarkdown from "react-markdown";
 
 export default function ChatBot() {
+  const [lang, setlang] = useState("en");
+  const [isLangSwitching, setIsLangSwitching] = useState(false);
   const [messages, setMessages] = useState([
     {
       role: "assistant",
       text: "Halo! Saya asisten AI untuk Ahmad Kamaludin. Apa yang ingin kamu ketahui tentang saya?",
     },
   ]);
+
+  useEffect(() => {
+    setMessages([
+      {
+        role: "assistant",
+        text:
+          lang === "en"
+            ? "Hello! I am the AI assistant for Ahmad Kamaludin. What would you like to know about me?"
+            : "Halo! Saya asisten AI untuk Ahmad Kamaludin. Apa yang ingin kamu ketahui tentang saya?",
+      },
+    ]);
+  }, [lang]);
+
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const chatEndRef = useRef(null);
 
-  // Auto scroll saat ada pesan baru
+ 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
+
+  
+const handleLanguageSwitch = () => {
+  if (isLangSwitching) return; 
+
+  setlang((prev) => (prev === "en" ? "id" : "en"));
+
+
+  setTimeout(() => {
+    setIsLangSwitching(false);
+  }, 50000);
+};
 
   const handleSend = async () => {
     if (!input.trim()) return;
@@ -30,14 +57,13 @@ export default function ChatBot() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/chat", {
+      const response = await fetch("https://portofolio-ai-backed.vercel.app/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: userMessage.text }),
+        body: JSON.stringify({ message: userMessage.text, language: lang }),
       });
       const data = await response.json();
 
-    
       setTimeout(() => {
         setMessages((prev) => [
           ...prev,
@@ -55,15 +81,21 @@ export default function ChatBot() {
   };
 
   return (
-    <div className="fixed z-50 max-sm:left-1/2 max-sm:-translate-x-1/2 max-sm:w-[90%] bottom-40 max-sm:bottom-24 right-40 w-[380px] h-[520px]  text-white rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-[#3F3A52]">
+    <div className="fixed z-50 max-sm:left-1/2 max-sm:-translate-x-1/2 max-sm:w-[90%] bottom-40 max-sm:bottom-24 right-40 w-[380px] h-[550px]  text-white rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-[#3F3A52]">
       <img
         src={heroBackground}
         alt="bg"
-        className="object-cover absolute inset-0 -z-1"
+        className="object-cover absolute inset-0 bottom-0 -z-1"
       />
       {/* Header */}
-      <div className="bg-[#252134] px-6 py-4 text-[#CAC6DD] font-semibold text-xl">
-        AI ChatBot
+      <div className="bg-[#252134] flex items-center justify-between px-6 py-2 text-[#CAC6DD] font-semibold text-xl">
+        <h1>Ak-bot</h1>
+        <button
+          disabled={isLangSwitching}
+          onClick={handleLanguageSwitch}
+          className="w-10 flex justify-center items-center h-10 rounded-full bg-n-5">
+          <p className="text-sm font-normal">{lang}</p>
+        </button>
       </div>
 
       {/* Chat Area */}
