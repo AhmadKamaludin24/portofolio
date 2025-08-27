@@ -2,6 +2,8 @@
 import { useState, useRef, useEffect } from "react";
 import { Send } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { heroBackground } from "../assets";
+import ReactMarkdown from "react-markdown";
 
 export default function ChatBot() {
   const [messages, setMessages] = useState([
@@ -35,9 +37,12 @@ export default function ChatBot() {
       });
       const data = await response.json();
 
-      // Tambahkan delay kecil supaya animasi loading terlihat
+    
       setTimeout(() => {
-        setMessages((prev) => [...prev, { role: "assistant", text: data.reply }]);
+        setMessages((prev) => [
+          ...prev,
+          { role: "assistant", text: data.reply },
+        ]);
         setLoading(false);
       }, 500);
     } catch (error) {
@@ -50,14 +55,19 @@ export default function ChatBot() {
   };
 
   return (
-    <div className="fixed z-50 max-sm:left-1/2 max-sm:-translate-x-1/2 max-sm:w-[90%] bottom-40 max-sm:bottom-24 right-40 w-[380px] h-[520px] bg-[#1B1B2E] text-white rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-[#3F3A52]">
+    <div className="fixed z-50 max-sm:left-1/2 max-sm:-translate-x-1/2 max-sm:w-[90%] bottom-40 max-sm:bottom-24 right-40 w-[380px] h-[520px]  text-white rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-[#3F3A52]">
+      <img
+        src={heroBackground}
+        alt="bg"
+        className="object-cover absolute inset-0 -z-1"
+      />
       {/* Header */}
       <div className="bg-[#252134] px-6 py-4 text-[#CAC6DD] font-semibold text-xl">
         AI ChatBot
       </div>
 
       {/* Chat Area */}
-      <div className="flex-1 overflow-y-auto px-6 py-4 space-y-4 max-h-[400px] scrollbar-thin scrollbar-thumb-[#3F3A52] scrollbar-track-[#15131D] flex flex-col">
+      <div className="flex-1  overflow-y-auto px-6 py-4 space-y-4 max-h-[400px] scrollbar-thin scrollbar-thumb-[#3F3A52] scrollbar-track-[#15131D] flex flex-col">
         <AnimatePresence initial={false}>
           {messages.map((msg, i) => (
             <motion.div
@@ -70,9 +80,36 @@ export default function ChatBot() {
                 msg.role === "assistant"
                   ? "bg-[#3F3A52] text-[#FFFFFF] self-start"
                   : "bg-[#474060] text-[#FFFFFF] self-end ml-auto"
-              }`}
-            >
-              {msg.text}
+              }`}>
+              <ReactMarkdown
+                components={{
+                  strong: ({ children }) => (
+                    <strong className="font-bold">{children}</strong>
+                  ),
+                  code: ({ children }) => (
+                    <code className="bg-[#252134] px-1 py-0.5 rounded text-[#FFD580]">
+                      {children}
+                    </code>
+                  ),
+                  pre: ({ children }) => (
+                    <pre className="bg-[#252134] p-3 rounded-lg overflow-x-auto">
+                      {children}
+                    </pre>
+                  ),
+                  ul: ({ children }) => (
+                    <ul className="list-disc list-inside space-y-1">
+                      {children}
+                    </ul>
+                  ),
+                  ol: ({ children }) => (
+                    <ol className="list-decimal list-inside space-y-1">
+                      {children}
+                    </ol>
+                  ),
+                  p: ({ children }) => <p className="mb-2">{children}</p>,
+                }}>
+                {msg.text}
+              </ReactMarkdown>
             </motion.div>
           ))}
 
@@ -83,8 +120,7 @@ export default function ChatBot() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              className="bg-[#3F3A52] text-[#FFFFFF] self-start p-4 rounded-2xl flex gap-1"
-            >
+              className="bg-[#3F3A52] text-[#FFFFFF] self-start p-4 rounded-2xl flex gap-1">
               <span className="animate-bounce">.</span>
               <span className="animate-bounce delay-200">.</span>
               <span className="animate-bounce delay-400">.</span>
@@ -107,8 +143,7 @@ export default function ChatBot() {
         <button
           onClick={handleSend}
           disabled={loading}
-          className="p-3 rounded-full bg-[#3F3A52] hover:bg-[#474060] transition"
-        >
+          className="p-3 rounded-full bg-[#3F3A52] hover:bg-[#474060] transition">
           <Send className="w-5 h-5 text-[#FFFFFF]" />
         </button>
       </div>

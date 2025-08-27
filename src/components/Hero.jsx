@@ -9,6 +9,7 @@ import Generating from "./Generating";
 import Notification from "./Notification";
 import CompanyLogos from "./CompanyLogos";
 import Lanyard from "./jsrepo/Lanyard/Lanyard";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const parallaxRef = useRef(null);
@@ -23,7 +24,14 @@ const Hero = () => {
         customPaddings
         id="home">
         <div className="container relative min-h-svh" ref={parallaxRef}>
-          <div className="relative z-1 max-w-[62rem] mx-auto text-center mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]">
+          <motion.div  
+          initial={{ opacity: 0, y: 50 }} // mulai bawah
+          whileInView={{ opacity: 1, y: 0 }} // ke posisi normal
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.2 }} // animasi hanya sekali
+          className="relative z-1 max-w-[62rem] mx-auto text-center mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]"
+          >
+         
             <h1 className="h1 mb-6">
               Your Ideas, Turned Into Stunning Websites. {` `}
             </h1>
@@ -35,7 +43,8 @@ const Hero = () => {
             <Button href="#project" white>
               get in touch
             </Button>
-          </div>
+         
+          </motion.div>
 
           <div className="relative max-w-[23rem] mx-auto md:max-w-3xl xl:mb-24">
             <div className="absolute inset-0 -top-[20rem] w-[108%] max-md:-top-[16rem] max-md:w-[200%]  left-1/2 -translate-x-1/2 -translate-y-1/2 ">

@@ -58,7 +58,7 @@ export const projects = [
     description:
       "an innovative e-learning platform that leverages AI to provide personalized learning experiences and interactive conversations.",
     imageUrl: brobot,
-    projectUrl: "https://yourecommerce.com",
+    projectUrl: "https://brobot-ak.vercel.app/",
     codeUrl: ""
   },
   {
@@ -67,7 +67,7 @@ export const projects = [
     description:
       "A modern event ticketing website prototype that allows users to browse and purchase tickets from events.",
     imageUrl: knr,
-    projectUrl: "https://yourblog.com",
+    projectUrl: "https://knr-sage.vercel.app/",
     codeUrl: ""
   },
   {
@@ -76,7 +76,7 @@ export const projects = [
     description:
       "An AI-powered chatbot application that provides instant responses and personalized recommendations.",
     imageUrl: brobotChat,
-    projectUrl: "https://yourtaskmanager.com",
+    projectUrl: "https://brobot-chat.vercel.app/",
     codeUrl: ""
   },
 ]

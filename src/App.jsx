@@ -29,10 +29,18 @@ function App() {
         <AboutSection />
          <ProjectSection/>
 
-
-        <button onClick={()=>setisOpen(!isOpen)} className="fixed bottom-7 z-50 right-7 border-4 border-white w-28 h-28 max-sm:h-24 max-sm:w-24 rounded-full bg-black flex justify-center items-center">
-          <BotMessageSquare size={70}/>
-        </button>
+      <AnimatePresence>
+        <motion.button
+          initial={{  scale: 0.8 }}
+          animate={{   scale: 1 }}
+          
+          transition={{ duration: 1, ease: "linear", repeat: Infinity,  }}
+          onClick={() => setisOpen(!isOpen)}
+          className="fixed z-50 bottom-7 right-7  bg-[#1B1B2E] text-white p-4 rounded-full shadow-lg hover:bg-[#252134] transition flex items-center justify-center"
+        >
+          <BotMessageSquare className="w-12 h-12 max-sm:w-8 max-sm:h-8" />
+        </motion.button>
+      </AnimatePresence>
 
 
        <AnimatePresence>
