@@ -81,10 +81,11 @@ const handleLanguageSwitch = () => {
   };
 
   return (
-    <div className="fixed z-50 max-sm:left-1/2 max-sm:-translate-x-1/2 max-sm:w-[90%] bottom-40 max-sm:bottom-24 right-40 w-[380px] h-[550px]  text-white rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-[#3F3A52]">
+    <div className="fixed bg-n-8 z-50 max-sm:left-1/2 max-sm:-translate-x-1/2 max-sm:w-[90%] bottom-40 max-sm:bottom-24 right-40 w-[380px] h-[550px]  text-white rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-[#3F3A52]">
       <img
         src={heroBackground}
         alt="bg"
+        height={550}
         className="object-cover absolute inset-0 bottom-0 -z-1"
       />
       {/* Header */}

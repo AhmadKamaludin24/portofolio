@@ -19,8 +19,8 @@ function App() {
       {/* Wrapper seluruh halaman */}
       <div className="relative overflow-hidden pt-[4.7rem]">
         {/* Background Lanyard */}
-        <div className="absolute inset-0 -top-[80rem] max-sm:-top-[110rem] w-full h-full z-1">
-          <Lanyard fov={55} position={[0,0,30]}/>
+        <div className="absolute inset-0 -top-[80rem] max-sm:-top-[115rem] w-full h-full z-1">
+          <Lanyard fov={60} />
         </div>
 
         {/* Konten */}

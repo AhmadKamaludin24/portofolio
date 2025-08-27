@@ -6,7 +6,7 @@ const ProjectCard = ({title, subtitle, imgUrl, cta}) => {
     <div
       className="block relative p-0.5 bg-n-8 h-[40rem] max-sm:h-auto max-sm:w-full bg-no-repeat bg-[length:100%_100%]"
       style={{
-        backgroundImage: "url(./src/assets/benefits/card-1.svg)",
+        backgroundImage: "url(/card-1.svg)",
       }}>
       <div className="relative  z-2 p-12 max-sm:p-4 flex flex-col justify-between h-full">
   <div>
