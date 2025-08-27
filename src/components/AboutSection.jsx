@@ -15,10 +15,10 @@ const AboutSection = () => {
       customPaddings>
       <div className="lg:max-w-[100rem] w-full max-sm:pb-32 mx-auto relative py-24 flex max-md:flex-col items-center justify-between  lg:gap-10">
         <div className="flex flex-col z-10 gap-5 lg:max-w-3xl">
-          <h1 className="h1  ">
+          <h1 className="h1 max-sm:text-3xl max-sm:max-w-[90%] ">
             Pixels Are My Playground, Code Is My Language.
           </h1>
-          <h2 className="h6 font-code text-n-2 max-sm:text-sm">
+          <h2 className=" font-code text-n-2 max-sm:text-sm">
             I love the harmony between design and development. With a deep
             passion for visuals and clean code, I turn static concepts into
             interactive, responsive experiences. My approach combines aesthetics

@@ -29,7 +29,7 @@ const Hero = () => {
           whileInView={{ opacity: 1, y: 0 }} // ke posisi normal
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: false, amount: 0.2 }} // animasi hanya sekali
-          className="relative z-1 max-w-[62rem] mx-auto text-center mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]"
+          className="relative z-20 max-w-[62rem] mx-auto text-center mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]"
           >
          
             <h1 className="h1 mb-6">
