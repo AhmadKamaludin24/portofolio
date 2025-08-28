@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { heroBackground } from "../assets";
 import ReactMarkdown from "react-markdown";
 
-export default function ChatBot() {
+export default function ChatBot({ isOpen }) {
   const [lang, setlang] = useState("en");
   const [isLangSwitching, setIsLangSwitching] = useState(false);
   const [messages, setMessages] = useState([
@@ -81,7 +81,12 @@ const handleLanguageSwitch = () => {
   };
 
   return (
-    <div className="fixed bg-n-8 z-50 max-sm:left-1/2 max-sm:-translate-x-1/2 max-sm:w-[90%] bottom-40 max-sm:bottom-24 right-40 w-[380px] h-[550px]  text-white rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-[#3F3A52]">
+    <AnimatePresence>
+      <motion.div  initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.5 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className={` ${isOpen ? "fixed" : "hidden"}  bg-n-8 z-[100] max-sm:left-4 max-sm:w-[90%] bottom-40 max-sm:bottom-24 right-40 w-[380px] h-[550px]  text-white rounded-3xl shadow-2xl flex flex-col justify-between overflow-hidden border border-[#3F3A52]`}>
       <img
         src={heroBackground}
         alt="bg"
@@ -89,7 +94,7 @@ const handleLanguageSwitch = () => {
         className="object-cover absolute inset-0 bottom-0 -z-1"
       />
       {/* Header */}
-      <div className="bg-[#252134] flex items-center justify-between px-6 py-2 text-[#CAC6DD] font-semibold text-xl">
+      <div className="bg-[#252134] w-full flex items-center justify-between px-6 py-2 text-[#CAC6DD] font-semibold text-xl">
         <h1>Ak-bot</h1>
         <button
           disabled={isLangSwitching}
@@ -164,7 +169,7 @@ const handleLanguageSwitch = () => {
       </div>
 
       {/* Input */}
-      <div className="flex items-center gap-3 p-4 bg-[#15131D]">
+      <div className="flex items-center gap-3 p-4   bg-[#15131D]">
         <input
           type="text"
           value={input}
@@ -180,6 +185,8 @@ const handleLanguageSwitch = () => {
           <Send className="w-5 h-5 text-[#FFFFFF]" />
         </button>
       </div>
-    </div>
+    </motion.div>
+    </AnimatePresence>
+    
   );
 }

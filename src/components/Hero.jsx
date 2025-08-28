@@ -16,7 +16,6 @@ const Hero = () => {
 
   return (
     <div className=" max-sm:pb-32">
-      
       <Section
         className="pt-[12rem] max-sm:pt-[7rem] -mt-[5.25rem]"
         crosses
@@ -24,14 +23,12 @@ const Hero = () => {
         customPaddings
         id="home">
         <div className="container relative min-h-svh" ref={parallaxRef}>
-          <motion.div  
-          initial={{ opacity: 0, y: 50 }} // mulai bawah
-          whileInView={{ opacity: 1, y: 0 }} // ke posisi normal
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: false, amount: 0.2 }} // animasi hanya sekali
-          className="relative z-20 max-w-[62rem] mx-auto text-center mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]"
-          >
-         
+          <motion.div
+            initial={{ opacity: 0, y: 50 }} // mulai bawah
+            whileInView={{ opacity: 1, y: 0 }} // ke posisi normal
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: false, amount: 0.2 }} // animasi hanya sekali
+            className="relative z-20 max-w-[62rem] mx-auto text-center mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]">
             <h1 className="h1 mb-6">
               Your Ideas, Turned Into Stunning Websites. {` `}
             </h1>
@@ -40,10 +37,11 @@ const Hero = () => {
               transforming ideas into clean, responsive, and high-performing
               digital experiences.
             </p>
-            <Button href="#project" white>
-              get in touch
+            <Button
+              href="https://www.linkedin.com/in/ahmad-kamaludin-098826298?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+              white>
+              Get in Touch
             </Button>
-         
           </motion.div>
 
           <div className="relative max-w-[23rem] mx-auto md:max-w-3xl xl:mb-24">
